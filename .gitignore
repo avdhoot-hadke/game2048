@@ -1,0 +1,117 @@
+# ===============================
+# 🌿 Root .gitignore for Spring Boot + React
+# ===============================
+
+############################
+# 🧠 Common OS / Editor junk
+############################
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+*.swp
+*.bak
+*.iml
+.idea/
+.vscode/
+*.class
+
+############################
+# ⚙️ Maven / Spring Boot
+############################
+/backend/target/
+/backend/.mvn/wrapper/maven-wrapper.jar
+/backend/.mvn/wrapper/maven-wrapper.properties
+/backend/.settings/
+/backend/.classpath
+/backend/.project
+/backend/logs/
+/backend/.idea/
+/backend/.env
+
+############################
+# ⚛️ React / Node.js
+############################
+/frontend/node_modules/
+/frontend/build/
+/frontend/.env.local
+/frontend/.env.development.local
+/frontend/.env.test.local
+/frontend/.env.production.local
+/frontend/.eslintcache
+/frontend/npm-debug.log*
+/frontend/yarn-debug.log*
+/frontend/yarn-error.log*
+/frontend/.parcel-cache
+/frontend/.pnp*
+/frontend/pnpm-lock.yaml
+/frontend/package-lock.json
+
+############################
+# 🧪 Testing / Coverage
+############################
+/frontend/coverage/
+/backend/coverage/
+/test-output/
+/target/
+
+############################
+# 📦 Dependencies / Archives
+############################
+*.jar
+*.war
+*.zip
+*.tar.gz
+
+############################
+# 🚀 Build Artifacts
+############################
+/dist/
+/out/
+/build/
+
+############################
+# 🔐 Sensitive Files (manual)
+############################
+.env
+.env.*
+*.key
+*.pem
+*.crt
+*.csr
+*.keystore
+
+
+HELP.md
+target/
+.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/
