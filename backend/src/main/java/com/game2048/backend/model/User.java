@@ -21,5 +21,5 @@ public class User {
 
     private int boardSize = 4;
 
-    private int highestScore = 0;
+    private long highestScore = 0;
 }

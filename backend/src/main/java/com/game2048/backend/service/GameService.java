@@ -1,19 +1,25 @@
 package com.game2048.backend.service;
 
+import com.game2048.backend.dto.InitResponseDTO;
 import com.game2048.backend.dto.MoveRequestDTO;
 import com.game2048.backend.dto.MoveResponseDTO;
+import com.game2048.backend.repository.UserRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.security.Principal;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
 @Service
+@AllArgsConstructor
 public class GameService {
     private static final int TARGET = 2048;
+    private final UserRepository userRepository;
 
-    public MoveResponseDTO move(MoveRequestDTO moveRequest) {
+    public MoveResponseDTO move(MoveRequestDTO moveRequest, String username) {
         int[][] board = copyBoard(moveRequest.getBoard());
         long[] score = new long[]{moveRequest.getScore()};
 
@@ -35,7 +41,20 @@ public class GameService {
 
         String status = checkGameStatus(newBoard);
 
+        userRepository.findByUsername(username).ifPresent(user -> {
+            if (score[0] > user.getHighestScore()) {
+                user.setHighestScore(score[0]);
+                userRepository.save(user);
+            }
+        });
+
         return new MoveResponseDTO(newBoard, score[0], status);
+    }
+
+    public InitResponseDTO initGame(int size) {
+        int[][] board = new int[size][size];
+        addRandomTile(board);
+        return new InitResponseDTO(board, 0L);
     }
 
     //MOVES
