@@ -1,6 +1,11 @@
+import GameComponent from "../components/GameComponent";
+import Navbar from "../components/Navbar";
 
 export default function Game() {
   return (
-    <div>Game</div>
+    <>
+      <Navbar />
+      <GameComponent />
+    </>
   )
 }

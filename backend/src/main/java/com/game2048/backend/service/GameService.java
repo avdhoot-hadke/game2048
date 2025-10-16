@@ -34,7 +34,7 @@ public class GameService {
         };
 
         if (Arrays.deepEquals(board, newBoard)) {
-            return new MoveResponseDTO(newBoard, score[0], "INVALID");
+            return new MoveResponseDTO(newBoard, score[0], "IN_PROGRESS");
         }
 
         addRandomTile(newBoard);

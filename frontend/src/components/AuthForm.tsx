@@ -21,7 +21,7 @@ export default function AuthForm({ onSubmit, submitBtn }: {
                 <h1 className="text-center pb-5 text-2xl">{submitBtn} Form</h1>
                 <div className="flex flex-col">
                     <p>Username</p>
-                    <input className="bg-white border-1 rounded" type="text" value={formData.username} onChange={(e) => {
+                    <input className="bg-white border-1 rounded p-1 text-sm" placeholder="ex: johndoe" type="text" value={formData.username} onChange={(e) => {
                         setFormData(prev => {
                             return {
                                 ...prev,
@@ -32,7 +32,7 @@ export default function AuthForm({ onSubmit, submitBtn }: {
                 </div>
                 <div className="flex flex-col mt-3">
                     <p>Password</p>
-                    <input className="bg-white border-1 rounded" type="password" value={formData.password} onChange={(e) => {
+                    <input className="bg-white border-1 rounded p-1 text-sm" placeholder="Type Password" type="password" value={formData.password} onChange={(e) => {
                         setFormData(prev => {
                             return {
                                 ...prev,
@@ -42,17 +42,17 @@ export default function AuthForm({ onSubmit, submitBtn }: {
                     }} />
                 </div>
                 <div className="flex flex-col justify-center items-center w-full">
-                    <button className="border-1 rounded mt-7 w-30" type="submit">{submitBtn}</button>
+                    <button className="border-1 cursor-pointer rounded mt-7 w-30 hover:bg-gray-200" type="submit">{submitBtn}</button>
                 </div>
                 {
-                    (submitBtn == "Login") ? 
-                    <p className="text-center mt-4 text-xs">
-                        Haven't Registered? <Link to="/register" className="text-blue-500 hover:underline">Register here</Link>
-                    </p> 
-                    :
-                    <p className="text-center mt-4 text-xs">
-                        Already Register <Link to="/login" className="text-blue-500 hover:underline">Login here</Link>
-                    </p> 
+                    (submitBtn == "Login") ?
+                        <p className="text-center mt-4 text-xs">
+                            Haven't Registered? <Link to="/register" className="text-blue-500 hover:underline">Register here</Link>
+                        </p>
+                        :
+                        <p className="text-center mt-4 text-xs">
+                            Already Register <Link to="/login" className="text-blue-500 hover:underline">Login here</Link>
+                        </p>
                 }
 
             </form>
