@@ -20,7 +20,6 @@ export default function GameComponent() {
                 { size: boardSize },
                 { headers: { Authorization: `Bearer ${token}` } }
             );
-            console.log
             setBoard(res.data.board);
             setScore(res.data.score || 0);
         } catch (err) {
@@ -28,7 +27,20 @@ export default function GameComponent() {
         }
     };
 
-    // ✅ Handle movement
+    const handleRestart = async () => {
+        try {
+            const token = localStorage.getItem("token");
+            const res = await axios.post(
+                `${import.meta.env.VITE_API_BASE_URL}/api/init`,
+                { size: size },
+                { headers: { Authorization: `Bearer ${token}` } }
+            );
+            setBoard(res.data.board);
+            setScore(res.data.score || 0);
+        } catch (err) {
+            console.error("Error initializing game:", err);
+        }
+    }
     const makeMove = useCallback(
         async (direction: String) => {
             if (status === "WON" || status === "LOST") {
@@ -152,6 +164,7 @@ export default function GameComponent() {
                     >
                         ↓ Down
                     </button>
+                    <button className="border-1 p-2 rounded cursor-pointer hover:bg-gray-200" onClick={handleRestart}>Restart</button>
                 </div>
 
                 {status !== "IN_PROGRESS" && (
