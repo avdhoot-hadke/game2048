@@ -1,0 +1,8 @@
+target/
+.idea/
+.git/
+.gitignore
+README.md
+node_modules/
+*.iml
+.DS_Store
